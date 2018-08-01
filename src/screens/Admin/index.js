@@ -1,5 +1,5 @@
 import React from "react";
-import { Switch, Link, Route } from "react-router-dom";
+import { Link, Route } from "react-router-dom";
 
 const Home = props => <h1>Home Admin</h1>;
 const Users = props => <h1>Users Admin</h1>;
