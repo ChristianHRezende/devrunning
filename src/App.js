@@ -21,7 +21,7 @@ class App extends Component {
             <Header />
             <Route exact path="/" component={Home} />
             <Route path="/admin" component={Admin} />
-            <Route exact path="/restrito" component={Restrict} />
+            <Route path="/restrito" component={Restrict} />
             <Route exact path="/login" component={Login} />
 
             <p className="App-intro">
