@@ -3,19 +3,24 @@ import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 
 import ActionCreators from "../redux/actionCreators";
-import logo from "../logo.svg";
+import { Menu } from "semantic-ui-react";
 
 const Header = props => (
-  <header className="App-header">
-    <img src={logo} className="App-logo" alt="logo" />
-    <h1 className="App-title">Welcome to React</h1>
-    <p>
-      <Link to="/">Home</Link>
-      <Link to="/admin">Admin</Link>
-      <Link to="/restrito">Restito</Link>
-      <Link to="/login">Login</Link>
-    </p>
-  </header>
+  <Menu>
+    <Menu.Item>Corridas Online</Menu.Item>
+    <Menu.Item as={Link} to="/">
+      Home
+    </Menu.Item>
+    <Menu.Item as={Link} to="/admin">
+      Admin
+    </Menu.Item>
+    <Menu.Item as={Link} to="/restrito">
+      Restrito
+    </Menu.Item>
+    <Menu.Item as={Link} to="/login">
+      Login
+    </Menu.Item>
+  </Menu>
 );
 
 const mapStateToProps = state => ({
