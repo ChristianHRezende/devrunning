@@ -33,3 +33,9 @@ export function* auth() {
     }
   } else yield put(ActionCreators.authFailure("no token"));
 }
+
+export function* destroyAuth() {
+  localStorage.removeItem("token");
+  localStorage.removeItem("user");
+  yield put(ActionCreators.destroyAuthSuccess());
+}

@@ -34,7 +34,7 @@ const Header = props => (
         <Dropdown.Menu>
           <Dropdown.Item>Minha conta</Dropdown.Item>
           <Dropdown.Item>Alterar senha</Dropdown.Item>
-          <Dropdown.Item>Sair</Dropdown.Item>
+          <Dropdown.Item onClick={() => props.logout()}>Sair</Dropdown.Item>
         </Dropdown.Menu>
       </Dropdown>
     </Menu.Menu>
@@ -45,7 +45,7 @@ const mapStateToProps = state => ({
   auth: state.auth
 });
 const mapDispatchToProps = dispatch => ({
-  signin: (email, passwd) => ActionCreators.signinRequest(email, passwd)
+  logout: () => dispatch(ActionCreators.destroyAuthRequest())
 });
 
 export default connect(
