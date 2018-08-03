@@ -1,8 +1,9 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 
-import { Table, Button, Icon } from "semantic-ui-react";
+import { Table, Grid } from "semantic-ui-react";
 import ActionsCreators from "../../redux/actionCreators";
+import Button from "../../components/Button";
 
 class Runs extends Component {
   componentDidMount() {
@@ -27,26 +28,38 @@ class Runs extends Component {
       created: "2018-01-01 00:00:00"
     };
     return (
-      <div>
-        <h1>Corridas</h1>
-        <Button animated color="blue">
-          <Button.Content visible>Criar</Button.Content>
-          <Button.Content hidden>
-            <Icon name="add" />
-          </Button.Content>
-        </Button>
-        <Table celled color="blue">
-          <Table.Header>
-            <Table.Row>
-              <Table.HeaderCell>Nome</Table.HeaderCell>
-              <Table.HeaderCell>Duração</Table.HeaderCell>
-              <Table.HeaderCell>Distância</Table.HeaderCell>
-              <Table.HeaderCell>Data</Table.HeaderCell>
-            </Table.Row>
-          </Table.Header>
-          <Table.Body>{this.props.runs.data.map(this.renderRun)}</Table.Body>
-        </Table>
-      </div>
+      <Grid>
+        <Grid.Row columns={2}>
+          <Grid.Column>
+            <h1>Corridas</h1>
+          </Grid.Column>
+          <Grid.Column textAlign="right">
+            <Button
+              text="Criar"
+              color="blue"
+              icon="add"
+              action={() => this.props.create(run)}
+            />
+          </Grid.Column>
+        </Grid.Row>
+        <Grid.Row>
+          <Grid.Column>
+            <Table celled color="blue">
+              <Table.Header>
+                <Table.Row>
+                  <Table.HeaderCell>Nome</Table.HeaderCell>
+                  <Table.HeaderCell>Duração</Table.HeaderCell>
+                  <Table.HeaderCell>Distância</Table.HeaderCell>
+                  <Table.HeaderCell>Data</Table.HeaderCell>
+                </Table.Row>
+              </Table.Header>
+              <Table.Body>
+                {this.props.runs.data.map(this.renderRun)}
+              </Table.Body>
+            </Table>
+          </Grid.Column>
+        </Grid.Row>
+      </Grid>
     );
   }
 }

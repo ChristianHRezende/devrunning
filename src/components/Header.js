@@ -16,7 +16,7 @@ const Header = ({ menu, auth, logout }) => (
   <Menu>
     <Menu.Item as={Link} to={menu.to || "/"}>
       {menu.text}
-      <small>&nbsp; {menu.small}</small>
+      <small>&nbsp; <b>{menu.small}</b></small>
     </Menu.Item>
 
     {menu.items &&

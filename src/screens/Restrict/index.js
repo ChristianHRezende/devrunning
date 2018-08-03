@@ -26,7 +26,6 @@ const Restrict = props => {
   return (
     <div>
       <Header menu={menu} />
-      <h1>Restrict</h1>
       <div>
         <Route path={`${props.match.path}/`} exact component={Home} />
         <Route path={`${props.match.path}/runs`} component={Runs} />
