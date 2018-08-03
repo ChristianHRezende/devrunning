@@ -3,15 +3,20 @@ import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 
 import ActionCreators from "../../../redux/actionCreators";
-import { Menu } from "semantic-ui-react";
+import { Menu, Dropdown, Image } from "semantic-ui-react";
+
+const trigger = user => (
+  <div>
+    <Image avatar src="https://imgur.com/I80W1Q0.png" />
+    <strong>&nbsp; {user.name}</strong>
+  </div>
+);
 
 const Header = props => (
   <Menu>
     <Menu.Item>
       Corridas Online
-      <small>
-        <b> &nbsp; Restrito</b>
-      </small>
+      <small>&nbsp; Restrito</small>
     </Menu.Item>
     <Menu.Item as={Link} to="/restrito">
       Home
@@ -19,6 +24,20 @@ const Header = props => (
     <Menu.Item as={Link} to="/restrito/runs">
       Corridas
     </Menu.Item>
+    <Menu.Menu position="right">
+      <Dropdown
+        item
+        icon="avatar"
+        trigger={trigger(props.auth.user)}
+        icon="caret down"
+      >
+        <Dropdown.Menu>
+          <Dropdown.Item>Minha conta</Dropdown.Item>
+          <Dropdown.Item>Alterar senha</Dropdown.Item>
+          <Dropdown.Item>Sair</Dropdown.Item>
+        </Dropdown.Menu>
+      </Dropdown>
+    </Menu.Menu>
   </Menu>
 );
 
