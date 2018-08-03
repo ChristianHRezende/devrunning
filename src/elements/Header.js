@@ -16,7 +16,9 @@ const Header = ({ menu, auth, logout }) => (
   <Menu>
     <Menu.Item as={Link} to={menu.to || "/"}>
       {menu.text}
-      <small>&nbsp; <b>{menu.small}</b></small>
+      <small>
+        &nbsp; <b>{menu.small}</b>
+      </small>
     </Menu.Item>
 
     {menu.items &&
@@ -33,6 +35,8 @@ const Header = ({ menu, auth, logout }) => (
             {menu.dropdown.items &&
               menu.dropdown.items.map((item, index) => (
                 <Dropdown.Item
+                  as={Link}
+                  to={item.to || "/"}
                   onClick={item.action === "logout" ? () => logout() : null}
                   key={index}
                 >

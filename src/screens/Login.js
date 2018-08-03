@@ -4,8 +4,8 @@ import { Redirect } from "react-router-dom";
 import ActionCreators from "../redux/actionCreators";
 import { Form } from "semantic-ui-react";
 
-import Header from "../components/Header";
-import Button from "../components/Button";
+import Header from "../elements/Header";
+import Button from "../elements/Button";
 
 const menu = {
   text: "Corridas Online",

@@ -1,5 +1,5 @@
 import React from "react";
-import Header from "../components/Header";
+import Header from "../elements/Header";
 
 const menu = {
   text: "Corridas Online",

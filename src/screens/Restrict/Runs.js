@@ -3,23 +3,38 @@ import { connect } from "react-redux";
 
 import { Table, Grid } from "semantic-ui-react";
 import ActionsCreators from "../../redux/actionCreators";
-import Button from "../../components/Button";
+import Button from "../../elements/Button";
+import Distance from "../../elements/Distance";
+import Duration from "../../elements/Duration";
+import DateStr from "../../elements/Date";
 
 class Runs extends Component {
   componentDidMount() {
     this.props.load();
   }
 
-  renderRun(run) {
+  renderRun = run => {
     return (
       <Table.Row key={run.id}>
         <Table.Cell>{run.friendly_name}</Table.Cell>
-        <Table.Cell>{run.distance}</Table.Cell>
-        <Table.Cell>{run.distance}</Table.Cell>
-        <Table.Cell>{run.created}</Table.Cell>
+        <Table.Cell>
+          <Duration duration={run.duration} />
+        </Table.Cell>
+        <Table.Cell>
+          <Distance
+            metric={this.props.auth.user.unit}
+            distance={run.distance}
+          />
+        </Table.Cell>
+        <Table.Cell>
+          <DateStr
+            date={run.created}
+            timezone={this.props.auth.user.timezone}
+          />
+        </Table.Cell>
       </Table.Row>
     );
-  }
+  };
   render() {
     const run = {
       friendly_name: "run de test",
@@ -64,7 +79,7 @@ class Runs extends Component {
   }
 }
 
-const mapStateToProps = state => ({ runs: state.runs });
+const mapStateToProps = state => ({ runs: state.runs, auth: state.auth });
 const mapDispacthToProps = dispatch => ({
   load: () => dispatch(ActionsCreators.getRunsRequest()),
   create: run => dispatch(ActionsCreators.createRunRequest(run))
