@@ -13,7 +13,7 @@ const Header = props => (
         <b> &nbsp; Restrito</b>
       </small>
     </Menu.Item>
-    <Menu.Item as={Link} to="/">
+    <Menu.Item as={Link} to="/restrito">
       Home
     </Menu.Item>
     <Menu.Item as={Link} to="/restrito/runs">

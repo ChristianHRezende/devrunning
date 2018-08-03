@@ -13,17 +13,14 @@ const Header = props => (
         <b>&nbsp; Admin</b>
       </small>
     </Menu.Item>
-    <Menu.Item as={Link} to="/">
+    <Menu.Item as={Link} to="/admin">
       Home
     </Menu.Item>
     <Menu.Item as={Link} to="/admin/users">
       Usuários
     </Menu.Item>
-    <Menu.Item as={Link} to="/admin/users">
+    <Menu.Item as={Link} to="/restrito">
       Restito
-    </Menu.Item>
-    <Menu.Item as={Link} to="/login">
-      Login
     </Menu.Item>
   </Menu>
 );
