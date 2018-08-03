@@ -1,10 +1,16 @@
 import React from "react";
-import Header from "./Header";
+import Header from "../components/Header";
+
+const menu = {
+  text: "Corridas Online",
+  small: "Admin",
+  items: [{ to: "/login", text: "Login", position: "right" }]
+};
 
 const Home = props => {
   return (
     <div>
-      <Header />
+      <Header menu={menu} />
       <h1>Home</h1>
     </div>
   );

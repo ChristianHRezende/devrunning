@@ -3,6 +3,14 @@ import { connect } from "react-redux";
 import { Redirect } from "react-router-dom";
 import ActionCreators from "../redux/actionCreators";
 
+import Header from "../components/Header";
+
+const menu = {
+  text: "Corridas Online",
+  small: "Admin",
+  items: [{ to: "/login", text: "Login", position: "right" }]
+};
+
 class Login extends Component {
   state = {
     form: {
@@ -34,6 +42,7 @@ class Login extends Component {
     }
     return (
       <div>
+        <Header menu={menu} />
         <h1>Login</h1>
         <input
           type="text"
