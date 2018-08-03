@@ -12,11 +12,15 @@ export const { Types, Creators } = createActions({
   destroyAuthRequest: null,
   destroyAuthSuccess: null,
 
+  updateProfileRequest: ['user'],
+  updateProfileSuccess: ['user'],
+  updateProfileFailure: ['error'],
+
   getRunsRequest: null,
   getRunsSuccess: ["runs"],
   getRunsFailure: null,
 
-  createRunRequest: ["run"], //"friendly_name", "duration", "distance", "created"
+  createRunRequest: ["run"],
   createRunSuccess: ["run"],
   createRunFailure: ["error"]
 });

@@ -26,8 +26,12 @@ export function* auth() {
   const token = localStorage.getItem("token");
   if (token) {
     try {
-      const user = jwtDecode(token);
-      yield put(ActionCreators.authSuccess(user));
+      const { data } = yield axios.get("http://localhost:3001/users/me", {
+        headers: {
+          Authorization: "Bearer " + token
+        }
+      });
+      yield put(ActionCreators.authSuccess(data));
     } catch (err) {
       yield put(ActionCreators.authFailure("invalid token"));
     }
@@ -38,4 +42,26 @@ export function* destroyAuth() {
   localStorage.removeItem("token");
   localStorage.removeItem("user");
   yield put(ActionCreators.destroyAuthSuccess());
+}
+
+export function* updateProfile(action) {
+  const token = localStorage.getItem("token");
+  const user = yield axios.patch(
+    `http://localhost:3001/users/${action.user.id}`,
+    {
+      ...action.user
+    },
+    {
+      headers: {
+        Authorization: "Bearer " + token
+      }
+    }
+  );
+
+  yield put(
+    ActionCreators.updateProfileSuccess({
+      ...action.user
+    })
+  );
+  console.log(user);
 }
