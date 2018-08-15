@@ -5,8 +5,8 @@ import { connect } from "react-redux";
 import Header from "../../elements/Header";
 import Home from "./Home";
 import Runs from "./Runs";
-import MyAccount from "./MyAccount";
-import ChangePass from "./ChangePass";
+import MyAccount from "../commons/MyAccount";
+import ChangePass from "../commons/ChangePass";
 
 const menu = {
   text: "Corridas Online",

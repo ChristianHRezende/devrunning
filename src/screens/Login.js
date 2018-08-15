@@ -9,7 +9,6 @@ import Button from "../elements/Button";
 
 const menu = {
   text: "Corridas Online",
-  small: "Admin",
   items: [{ to: "/login", text: "Login", position: "right" }]
 };
 

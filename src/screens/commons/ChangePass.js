@@ -49,13 +49,14 @@ class ChangePass extends Component {
             />
           </Grid.Column>
         </Grid.Row>
-        {this.props.auth.saved && (
-          <Grid.Row columns="1">
-            <Grid.Column>
-              <Segment color="green">Senha alterada com sucesso!</Segment>
-            </Grid.Column>
-          </Grid.Row>
-        )}
+        {this.props.auth.saved &&
+          !this.state.error && (
+            <Grid.Row columns="1">
+              <Grid.Column>
+                <Segment color="green">Senha alterada com sucesso!</Segment>
+              </Grid.Column>
+            </Grid.Row>
+          )}
         {this.state.error && (
           <Grid.Row columns="1">
             <Grid.Column>
