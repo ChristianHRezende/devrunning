@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import timezones from "moment-timezone/data/meta/latest.json";
-import { Grid } from "semantic-ui-react";
+import { Grid, Segment, Form } from "semantic-ui-react";
 import ActionsCreators from "../../redux/actionCreators";
 import Button from "../../elements/Button";
 
@@ -46,28 +46,36 @@ class MyAccount extends Component {
             />
           </Grid.Column>
         </Grid.Row>
+        {this.props.auth.saved && (
+          <Grid.Row columns="1">
+            <Grid.Column>
+              <Segment color="green">Dados atualizados com sucesso!</Segment>
+            </Grid.Column>
+          </Grid.Row>
+        )}
         <Grid.Row>
           <Grid.Column>
-            <select
-              value={this.state.unit}
-              onChange={this.handleChange("unit")}
-            >
-              <option value="metric">Métrico (Km)</option>
-              <option value="imperial">Imperial (mi)</option>
-            </select>
-
-            <select
-              value={this.state.timezone}
-              onChange={this.handleChange("timezone")}
-            >
-              {Object.keys(timezones.zones).map((timezone, index) => {
-                return (
-                  <option key={index} value={timezone}>
-                    {timezone}
-                  </option>
-                );
-              })}
-            </select>
+            <Form>
+              <select
+                value={this.state.unit}
+                onChange={this.handleChange("unit")}
+              >
+                <option value="metric">Métrico (Km)</option>
+                <option value="imperial">Imperial (mi)</option>
+              </select>
+              <select
+                value={this.state.timezone}
+                onChange={this.handleChange("timezone")}
+              >
+                {Object.keys(timezones.zones).map((timezone, index) => {
+                  return (
+                    <option key={index} value={timezone}>
+                      {timezone}
+                    </option>
+                  );
+                })}
+              </select>
+            </Form>
           </Grid.Column>
         </Grid.Row>
       </Grid>
