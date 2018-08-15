@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import ActionCreators from "../redux/actionCreators";
 import { Menu, Dropdown, Image } from "semantic-ui-react";
 
+import logo from "../assets/logo.png";
 const trigger = user => (
   <div>
     <Image avatar src="https://imgur.com/I80W1Q0.png" />
@@ -15,7 +16,7 @@ const trigger = user => (
 const Header = ({ menu, auth, logout }) => (
   <Menu>
     <Menu.Item as={Link} to={menu.to || "/"}>
-      {menu.text}
+      <Image src={logo} size="small" />
       <small>
         &nbsp; <b>{menu.small}</b>
       </small>
