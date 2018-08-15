@@ -59,25 +59,29 @@ class MyAccount extends Component {
         <Grid.Row>
           <Grid.Column>
             <Form>
-              <select
-                value={this.state.unit}
-                onChange={this.handleChange("unit")}
-              >
-                <option value="metric">Métrico (Km)</option>
-                <option value="imperial">Imperial (mi)</option>
-              </select>
-              <select
-                value={this.state.timezone}
-                onChange={this.handleChange("timezone")}
-              >
-                {Object.keys(timezones.zones).map((timezone, index) => {
-                  return (
-                    <option key={index} value={timezone}>
-                      {timezone}
-                    </option>
-                  );
-                })}
-              </select>
+              <Form.Field>
+                <select
+                  value={this.state.unit}
+                  onChange={this.handleChange("unit")}
+                >
+                  <option value="metric">Métrico (Km)</option>
+                  <option value="imperial">Imperial (mi)</option>
+                </select>
+              </Form.Field>
+              <Form.Field>
+                <select
+                  value={this.state.timezone}
+                  onChange={this.handleChange("timezone")}
+                >
+                  {Object.keys(timezones.zones).map((timezone, index) => {
+                    return (
+                      <option key={index} value={timezone}>
+                        {timezone}
+                      </option>
+                    );
+                  })}
+                </select>
+              </Form.Field>
             </Form>
           </Grid.Column>
         </Grid.Row>
