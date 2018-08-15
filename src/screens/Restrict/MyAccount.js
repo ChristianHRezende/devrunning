@@ -17,6 +17,7 @@ class MyAccount extends Component {
       unit: user.unit,
       timezone: user.timezone
     });
+    this.props.reset();
   }
   handleSave = () => {
     this.props.save({
@@ -49,7 +50,9 @@ class MyAccount extends Component {
         {this.props.auth.saved && (
           <Grid.Row columns="1">
             <Grid.Column>
-              <Segment color="green">Dados atualizados com sucesso!</Segment>
+              <Segment color="green">
+                Configurações atualizadas com sucesso!
+              </Segment>
             </Grid.Column>
           </Grid.Row>
         )}
@@ -85,7 +88,8 @@ class MyAccount extends Component {
 
 const mapStateToProps = state => ({ auth: state.auth });
 const mapDispacthToProps = dispatch => ({
-  save: user => dispatch(ActionsCreators.updateProfileRequest(user))
+  save: user => dispatch(ActionsCreators.updateProfileRequest(user)),
+  reset: () => dispatch(ActionsCreators.updateProfileReset())
 });
 export default connect(
   mapStateToProps,

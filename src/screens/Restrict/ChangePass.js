@@ -10,6 +10,10 @@ class ChangePass extends Component {
     passwd2: ""
   };
 
+  componentDidMount() {
+    this.props.reset();
+  }
+
   handleSave = () => {
     this.props.save({
       passwd: this.state.passwd,
@@ -68,7 +72,8 @@ class ChangePass extends Component {
 
 const mapStateToProps = state => ({ auth: state.auth });
 const mapDispacthToProps = dispatch => ({
-  save: user => dispatch(ActionsCreators.updateProfileRequest(user))
+  save: user => dispatch(ActionsCreators.updateProfileRequest(user)),
+  reset: () => dispatch(ActionsCreators.updateProfileReset())
 });
 export default connect(
   mapStateToProps,

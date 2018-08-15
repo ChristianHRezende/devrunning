@@ -12,9 +12,10 @@ export const { Types, Creators } = createActions({
   destroyAuthRequest: null,
   destroyAuthSuccess: null,
 
-  updateProfileRequest: ['user'],
-  updateProfileSuccess: ['user'],
-  updateProfileFailure: ['error'],
+  updateProfileReset: null,
+  updateProfileRequest: ["user"],
+  updateProfileSuccess: ["user"],
+  updateProfileFailure: ["error"],
 
   getRunsRequest: null,
   getRunsSuccess: ["runs"],
