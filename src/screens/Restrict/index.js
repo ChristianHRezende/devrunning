@@ -6,6 +6,7 @@ import Header from "../../elements/Header";
 import Home from "./Home";
 import Runs from "./Runs";
 import MyAccount from "./MyAccount";
+import ChangePass from "./ChangePass";
 
 const menu = {
   text: "Corridas Online",
@@ -16,7 +17,7 @@ const menu = {
     position: "right",
     items: [
       { text: "Minha conta", to: "/restrito/my-account" },
-      { text: "Alterar senha" },
+      { text: "Alterar senha", to: "/restrito/change-pass" },
       { text: "Sair", action: "logout" }
     ]
   }
@@ -32,6 +33,7 @@ const Restrict = props => {
         <Route path={`${props.match.path}/`} exact component={Home} />
         <Route path={`${props.match.path}/runs`} component={Runs} />
         <Route path={`${props.match.path}/my-account`} component={MyAccount} />
+        <Route path={`${props.match.path}/change-pass`} component={ChangePass} />
       </div>
     </div>
   );

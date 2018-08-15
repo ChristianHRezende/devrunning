@@ -8,7 +8,8 @@ export const INITIAL_STATE = {
   user: {},
   error: false,
   errorMessage: "",
-  isSaving: false
+  isSaving: false,
+  saved: false
 };
 
 export const signinRequest = (state = INITIAL_STATE, action) => {
@@ -80,7 +81,8 @@ export const updateProfileRequest = (state = INITIAL_STATE, action) => {
     ...state,
     isSaving: true,
     error: false,
-    errorMessage: ""
+    errorMessage: "",
+    saved: false
   };
 };
 
@@ -90,7 +92,8 @@ export const updateProfileSuccess = (state = INITIAL_STATE, action) => {
   return {
     ...state,
     isSaving: false,
-    user: newUser
+    user: newUser,
+    saved: true
   };
 };
 
@@ -99,7 +102,8 @@ export const updateProfileFailure = (state = INITIAL_STATE, action) => {
     ...state,
     isSaving: false,
     error: true,
-    errorMessage: action.error
+    errorMessage: action.error,
+    saved: false
   };
 };
 
